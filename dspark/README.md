@@ -17,6 +17,8 @@
 | `markov_head.py` | `VanillaMarkov.sample_block_tokens()` |
 | `common.py` | `extract_context_feature()` |
 | `qwen3/modeling.py` | `Qwen3DSparkModel._forward_backbone()` |
+| `gemma4/modeling.py` | `Gemma4DSparkModel._forward_backbone()` |
+| `gemma4/config.py` | Gemma4 draft 配置生成 |
 
 ## utils/
 
