@@ -62,7 +62,7 @@ class Gemma4DSparkAttention(nn.Module):
             bias=bool(config.attention_bias),
         )
         self.v_proj = None
-        if not self.use_alternative_attention:
+        if not self.use_alternative_attention: # 如果使用替代注意力，则不使用v_proj
             self.v_proj = nn.Linear(
                 config.hidden_size,
                 self.num_key_value_heads * self.head_dim,
@@ -75,7 +75,7 @@ class Gemma4DSparkAttention(nn.Module):
         )
         self.q_norm = Gemma4RMSNorm(self.head_dim, eps=config.rms_norm_eps)
         self.k_norm = Gemma4RMSNorm(self.head_dim, eps=config.rms_norm_eps)
-        self.v_norm = Gemma4RMSNorm(
+        self.v_norm = Gemma4RMSNorm( ## 多了个v_norm
             self.head_dim,
             eps=config.rms_norm_eps,
             with_scale=False,
